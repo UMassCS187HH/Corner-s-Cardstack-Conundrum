@@ -1,5 +1,7 @@
 package cardstack;
 
+import java.util.Random;
+
 public class Cardstack {
 
 	
@@ -31,9 +33,16 @@ public class Cardstack {
 		// TODO (7)
 		return false;
 	}
-	public String drawCard (String suit){
+	public String drawCards(){
 		// TODO (8)
-		return "";
+		Random r = new Random(cardCount());
+		
+		
+		return new StackUnderflowException();
+	}
+	public boolean isEmpty() {
+		// TODO (9)
+		return false;
 	}
 
 }
