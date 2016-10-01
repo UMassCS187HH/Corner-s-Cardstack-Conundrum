@@ -33,12 +33,12 @@ public class Cardstack {
 		// TODO (7)
 		return false;
 	}
-	public String drawCards(){
+	public String drawCards() throws DeckUnderflowException{
 		// TODO (8)
 		Random r = new Random(cardCount());
 		
 		
-		return new StackUnderflowException();
+		throw new DeckUnderflowException("You Lose!");
 	}
 	public boolean isEmpty() {
 		// TODO (9)

@@ -24,10 +24,16 @@ public class CardstackCommander {
 
 				if (count % 4 == 0) {
 					count++;
-					System.out.println("Clubs removed: "+ clubs.drawCards());
-					System.out.println("Diamonds removed: "+ diamonds.drawCards());
-					System.out.println("Spades removed: "+ spades.drawCards());
-					System.out.println("Hearts removed: "+ hearts.drawCards());
+					try {
+						System.out.println("Clubs removed: "+ clubs.drawCards());
+						System.out.println("Diamonds removed: "+ diamonds.drawCards());
+						System.out.println("Spades removed: "+ spades.drawCards());
+						System.out.println("Hearts removed: "+ hearts.drawCards());
+					} catch (DeckUnderflowException e) {
+						// TODO Auto-generated catch block
+						System.out.println(e.info);
+					}
+					
 				}
 
 				else {
