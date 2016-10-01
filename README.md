@@ -1,7 +1,7 @@
 #Corner’s Cardstack Conundrum
 ###Cardstacking fun with a Bounded Producer Consumer
 
-Jagath Jai Kumar – jjaikumar@gmail.com
+Jagath Jai Kumar – jjaikumar@umass.edu
 ##Overview
 
 For this project, you will be implementing a Bounded Producer-Consumer via a LinkedList. The data structure will simulate a special card shuffler that is organizing a deck while someone draws cards from the deck regularly. There are 9 methods to implement for this project.
