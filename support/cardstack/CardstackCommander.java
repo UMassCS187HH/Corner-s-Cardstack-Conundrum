@@ -15,23 +15,22 @@ public class CardstackCommander {
 
 		try {
 			do {
-				if (clubs.isEmpty() || diamonds.isEmpty() || spades.isEmpty() || hearts.isEmpty() && count != 1){
+				if ((clubs.isEmpty() || diamonds.isEmpty() || spades.isEmpty() || hearts.isEmpty()) && count > 5){
 					System.out.println("You Lose! Bad luck.");
 					break;
 				}
-				
-				
-
-				if (count % 4 == 0) {
+				if (count % 4 == 0 && (!clubs.isEmpty() && !diamonds.isEmpty() && !spades.isEmpty() && !hearts.isEmpty())) {
 					count++;
+					System.out.println("\n\nTIME TO DRAW CARDS!\n\n");
 					try {
-						System.out.println("Clubs removed: "+ clubs.drawCards());
-						System.out.println("Diamonds removed: "+ diamonds.drawCards());
-						System.out.println("Spades removed: "+ spades.drawCards());
-						System.out.println("Hearts removed: "+ hearts.drawCards());
+						clubs.drawCards();
+						diamonds.drawCards();
+						spades.drawCards();
+						hearts.drawCards();
 					} catch (DeckUnderflowException e) {
 						// TODO Auto-generated catch block
 						System.out.println(e.info);
+						break;
 					}
 					
 				}
@@ -51,10 +50,11 @@ public class CardstackCommander {
 					System.out.println("Card: " + card);
 
 					if (clubs.isValidCard(card)) {
+						System.out.println("Valid card");
 						switch (suit.toLowerCase()) {
 						case "clubs":
 							if (clubs.alreadyPlaced(card)) {
-								System.out.println("You already replaced that card!");
+								System.out.println("You already placed that card!");
 								break;
 							}
 							if (clubs.isFull()) {
@@ -62,6 +62,7 @@ public class CardstackCommander {
 								break;
 							}
 							clubs.addCard(card);
+							break;
 						case "diamonds":
 							if (diamonds.alreadyPlaced(card)) {
 								System.out.println("You already replaced that card!");
@@ -72,6 +73,7 @@ public class CardstackCommander {
 								break;
 							}
 							diamonds.addCard(card);
+							break;
 						case "spades":
 							if (spades.alreadyPlaced(card)) {
 								System.out.println("You already replaced that card!");
@@ -82,6 +84,7 @@ public class CardstackCommander {
 								break;
 							}
 							spades.addCard(card);
+							break;
 						case "hearts":
 							if (hearts.alreadyPlaced(card)) {
 								System.out.println("You already replaced that card!");
@@ -92,28 +95,21 @@ public class CardstackCommander {
 								break;
 							}
 							hearts.addCard(card);
+							break;
 						}
 					} else {
 						System.out.println("Error! Invalid Card!");
 					}
 				}
-
+				
 			} while (!clubs.isFull() && !diamonds.isFull() && !spades.isFull() && !hearts.isFull());
 		} finally {
-			cardIn.close();
-			
+			cardIn.close();	
 		}
-		
-		
-		
 		if (clubs.isFull() && diamonds.isFull() && spades.isFull() && hearts.isFull()){
 			System.out.println("Good job! You win!!!");
 		} else {
 			System.out.println("Maybe next time rookie.");
 		}
-			
-		
-		
-
 	}
 }

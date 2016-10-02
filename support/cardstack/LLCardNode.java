@@ -6,6 +6,11 @@ public class LLCardNode {
 	private LLCardNode link;
 	public LLCardNode (String card) {
 		this.data = card;
+		this.link = null;
+	}
+	public LLCardNode (String card, LLCardNode link) {
+		this.data = card;
+		this.link = link;
 	}
 	public String getData() {
 		return data;
